@@ -23,7 +23,7 @@ const tagsViewStore = useTagsViewStore();
 	/* 50= navbar  50  */
 	height: calc(100vh - 50px);
 	width: 100%;
-    background-color: #0d89e5;
+    //background-color: #0d89e5;
 }
 
 .fixed-header + .app-main {
