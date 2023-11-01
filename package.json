@@ -1,0 +1,43 @@
+{
+	"name": "dc",
+	"version": "3.6.3",
+	"description": "数据中台",
+	"author": "Vincer",
+	"license": "MIT",
+	"scripts": {
+		"dev": "vite",
+		"build:prod": "vite build",
+		"build:stage": "vite build --mode staging",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@element-plus/icons-vue": "^2.1.0",
+		"@vueup/vue-quill": "1.2.0",
+		"@vueuse/core": "10.5.0",
+		"@wangeditor/editor": "^5.1.23",
+		"@wangeditor/editor-for-vue": "^5.1.12",
+		"axios": "^1.6.0",
+		"echarts": "5.4.3",
+		"element-plus": "2.4.1",
+		"file-saver": "2.0.5",
+		"fuse.js": "7.0.0",
+		"js-cookie": "3.0.5",
+		"jsencrypt": "3.3.2",
+		"nprogress": "0.2.0",
+		"pinia": "2.1.7",
+		"pnpm": "^8.10.0",
+		"vue": "3.3.7",
+		"vue-cropper": "1.0.3",
+		"vue-router": "4.2.5"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "4.4.0",
+		"@vue/compiler-sfc": "3.3.7",
+		"sass": "1.69.5",
+		"unplugin-auto-import": "0.16.7",
+		"unplugin-vue-setup-extend-plus": "1.0.0",
+		"vite": "^4.5.0",
+		"vite-plugin-compression": "0.5.1",
+		"vite-plugin-svg-icons": "2.0.1"
+	}
+}
