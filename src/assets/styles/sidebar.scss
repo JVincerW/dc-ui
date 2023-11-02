@@ -3,7 +3,7 @@
 		height: 100%;
 		transition: margin-left .28s;
 		margin-left: $base-sidebar-width;
-		overflow: scroll;
+		overflow: hidden;
 	}
 
 	.sidebarHide {
