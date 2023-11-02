@@ -136,7 +136,7 @@
 				@pagination='getList'
 		/>
 		<!-- 预览界面 -->
-		<el-dialog v-model='preview.open' :title='preview.title' append-to-body class='scrollbar' top='5vh' width='80%'>
+		<el-dialog v-model='preview.open' :title='preview.title' append-to-body class='scrollbar' top='5vh' width='100%'>
 			<el-tabs v-model='preview.activeName'>
 				<el-tab-pane
 						v-for='(value, key) in preview.data'

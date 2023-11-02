@@ -3,7 +3,7 @@
 		<router-view v-slot='{ Component, route }'>
 			<transition mode='out-in' name='fade-transform'>
 				<keep-alive :include='tagsViewStore.cachedViews'>
-					<component :is='Component' v-if='!route.meta.link' :key='route.path' />
+					<component class="main_cont" :is='Component' v-if='!route.meta.link' :key='route.path' />
 				</keep-alive>
 			</transition>
 		</router-view>
@@ -22,8 +22,9 @@ const tagsViewStore = useTagsViewStore();
 .app-main {
 	/* 50= navbar  50  */
 	height: calc(100vh - 50px);
+  background-color: #0acf83;
 	width: 100%;
-    //background-color: #0d89e5;
+  overflow-y: scroll;
 }
 
 .fixed-header + .app-main {
