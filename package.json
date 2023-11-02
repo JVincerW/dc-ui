@@ -25,14 +25,16 @@
 		"jsencrypt": "3.3.2",
 		"nprogress": "0.2.0",
 		"pinia": "2.1.7",
-		"pnpm": "^8.10.0",
+		"pnpm": "^8.10.2",
 		"vue": "3.3.7",
 		"vue-cropper": "1.0.3",
 		"vue-router": "4.2.5"
 	},
 	"devDependencies": {
+		"@highlightjs/vue-plugin": "^2.1.0",
 		"@vitejs/plugin-vue": "4.4.0",
 		"@vue/compiler-sfc": "3.3.7",
+		"highlight.js": "^11.9.0",
 		"sass": "1.69.5",
 		"unplugin-auto-import": "0.16.7",
 		"unplugin-vue-setup-extend-plus": "1.0.0",

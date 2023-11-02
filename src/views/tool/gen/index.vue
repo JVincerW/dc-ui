@@ -144,9 +144,9 @@
 						:label="key.substring(key.lastIndexOf('/')+1,key.indexOf('.vm'))"
 						:name="key.substring(key.lastIndexOf('/')+1,key.indexOf('.vm'))"
 				>
-					<el-link v-copyText='value' v-copyText:callback='copyTextSuccess' :underline='false' icon='DocumentCopy' style='float:right'>&nbsp;复制</el-link>
-					<pre>{{value}}</pre>
-				</el-tab-pane>
+          <el-icon size="20" v-copyText='value' v-copyText:callback='copyTextSuccess' style='position: absolute;right:30px;top:30px;cursor: pointer;color: #e4efff'><CopyDocument /></el-icon>
+          <highlightjs language="JavaScript" :autodetect="false" :code="value"/>
+				</el-tab-pane>s
 			</el-tabs>
 		</el-dialog>
 		<import-table ref='importRef' @ok='handleQuery' />
@@ -158,7 +158,7 @@ import { delTable, genCode, listTable, previewTable, synchDb } from '@/api/tool/
 import router from '@/router';
 import importTable from './importTable';
 import { useRoute } from 'vue-router';
-
+import {CopyDocument, Share} from "@element-plus/icons-vue";
 const route = useRoute();
 const { proxy } = getCurrentInstance();
 
