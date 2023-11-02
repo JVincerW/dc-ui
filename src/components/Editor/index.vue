@@ -1,9 +1,7 @@
 <template>
     <quill-editor
         v-model:content='content'
-        class="quillEditor"
         :options='options'
-        :style='styles'
         contentType='html'
         @textChange="() => $emit('update:modelValue', content)"
     />
@@ -18,16 +16,6 @@ const props = defineProps({
     /* 编辑器的内容 */
     modelValue: {
         type: String,
-    },
-    /* 高度 */
-    height: {
-        type: Number,
-        default: null,
-    },
-    /* 最小高度 */
-    minHeight: {
-        type: Number,
-        default: null,
     },
     /* 只读 */
     readOnly: {
@@ -59,16 +47,7 @@ const options = ref({
     readOnly: props.readOnly,
 });
 
-const styles = computed(() => {
-    let style = {};
-    if (props.minHeight) {
-        style.minHeight = `${props.minHeight}px`;
-    }
-    if (props.height) {
-        style.height = `${props.height}px`;
-    }
-    return style;
-});
+
 
 const content = ref('');
 watch(() => props.modelValue, (v) => {
@@ -80,15 +59,12 @@ watch(() => props.modelValue, (v) => {
 </script>
 
 <style>
-.quillEditor {
-    display: flex;
-    flex-direction: column;
+.ql-container{
+    overflow-y: auto;
     height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
 }
 
-.quillEditor, .ql-toolbar {
+.ql-container, .ql-toolbar {
     white-space: pre-wrap !important;
     line-height: normal !important;
 }
