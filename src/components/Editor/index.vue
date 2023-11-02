@@ -80,6 +80,14 @@ watch(() => props.modelValue, (v) => {
 </script>
 
 <style>
+.editor{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: calc(100vh - 84px);
+    background-color: #eee;
+    box-sizing: border-box;
+}
 .editor, .ql-toolbar {
 	white-space: pre-wrap !important;
 	line-height: normal !important;
