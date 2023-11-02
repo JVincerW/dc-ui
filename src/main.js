@@ -20,7 +20,9 @@ import elementIcons from '@/components/SvgIcon/svgicon';
 import './permission'; // permission control
 import { useDict } from '@/utils/dict';
 import { addDateRange, handleTree, parseTime, resetForm, selectDictLabel, selectDictLabels } from '@/utils/ruoyi';
-
+import 'highlight.js/styles/github-dark.css'
+import 'highlight.js/lib/common'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
 // 分页组件
 import Pagination from '@/components/Pagination';
 // 自定义表格工具组件
@@ -60,6 +62,8 @@ app.component('ImagePreview', ImagePreview);
 app.component('RightToolbar', RightToolbar);
 app.component('Editor', Editor);
 
+
+app.use(hljsVuePlugin)
 app.use(router);
 app.use(store);
 app.use(plugins);
