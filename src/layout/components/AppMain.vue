@@ -22,7 +22,6 @@ const tagsViewStore = useTagsViewStore();
 .app-main {
     /* 50= navbar  50  */
     height: calc(100vh - 50px);
-    background-color: #ccc;
     width: 100%;
     overflow-y: scroll;
 }
