@@ -2,10 +2,8 @@
 
     <div style="background-color: #0acf83;">
         <el-button circle class='push' icon='Promotion' type='success' @click='digShow'/>
-
         <editor v-if='showBasicEditor' v-model='articleForm.content'/>
         <article-dig ref='articleDig' :digData='articleForm'></article-dig>
-
     </div>
 </template>
 
@@ -26,7 +24,6 @@ onBeforeMount(() => {
         getArticle(proxy.$route.query.id).then(response => {
             articleForm.value = response.data;
             articleForm.value.createType = 'Mod';
-            console.log(1111111);
             console.log(articleForm, 'articleForm');
         });
     } else {

@@ -1,14 +1,14 @@
 <template>
-	<section class='app-main'>
-		<router-view v-slot='{ Component, route }'>
-			<transition mode='out-in' name='fade-transform'>
-				<keep-alive :include='tagsViewStore.cachedViews'>
-					<component class="main_cont" :is='Component' v-if='!route.meta.link' :key='route.path' />
-				</keep-alive>
-			</transition>
-		</router-view>
-		<iframe-toggle />
-	</section>
+    <section class='app-main'>
+        <router-view v-slot='{ Component, route }'>
+            <transition mode='out-in' name='fade-transform'>
+                <keep-alive :include='tagsViewStore.cachedViews'>
+                    <component class="main_cont" :is='Component' v-if='!route.meta.link' :key='route.path'/>
+                </keep-alive>
+            </transition>
+        </router-view>
+        <iframe-toggle/>
+    </section>
 </template>
 
 <script setup>
@@ -20,49 +20,51 @@ const tagsViewStore = useTagsViewStore();
 
 <style lang='scss' scoped>
 .app-main {
-	/* 50= navbar  50  */
-	height: calc(100vh - 50px);
-  background-color: #0acf83;
-	width: 100%;
-  overflow-y: scroll;
+    /* 50= navbar  50  */
+    height: calc(100vh - 50px);
+    background-color: #ccc;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .fixed-header + .app-main {
-	padding-top: 50px;
+    padding-top: 50px;
+    height: 100vh;
 }
 
 .hasTagsView {
-	.app-main {
-		/* 84 = navbar + tags-view = 50 + 34 */
-		height: calc(100vh - 84px);
-	}
+    .app-main {
+        /* 84 = navbar + tags-view = 50 + 34 */
+        height: calc(100vh - 84px);
+    }
 
-	.fixed-header + .app-main {
-		padding-top: 154px;
-	}
+    .fixed-header + .app-main {
+        padding-top: 84px;
+        height: 100vh;
+    }
 }
 </style>
 
 <style lang='scss'>
 // fix css style bug in open el-dialog
 .el-popup-parent--hidden {
-	.fixed-header {
-		padding-right: 6px;
-	}
+    .fixed-header {
+        padding-right: 6px;
+    }
 }
 
 ::-webkit-scrollbar {
-	width: 6px;
-	height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-	background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #c0c0c0;
-	border-radius: 3px;
+    background-color: #c0c0c0;
+    border-radius: 3px;
 }
 </style>
 
