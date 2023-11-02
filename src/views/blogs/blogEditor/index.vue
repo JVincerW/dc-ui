@@ -1,10 +1,12 @@
 <template>
-
-    <div style="background-color: #0acf83;">
+    <!--TODO-->
+    <div class="vincer">
         <el-button circle class='push' icon='Promotion' type='success' @click='digShow'/>
         <editor v-if='showBasicEditor' v-model='articleForm.content'/>
         <article-dig ref='articleDig' :digData='articleForm'></article-dig>
     </div>
+
+
 </template>
 
 <script setup>
@@ -63,6 +65,13 @@ function digShow() {
     bottom: 39px;
     right: 80px;
     z-index: 99;
+}
+
+.vincer {
+    //height: 100%;
+    height: 100%;
+    //height: calc(100vh - 84px - 20px - 45px);
+    padding: 10px 0 49px 10px;
 }
 
 </style>
