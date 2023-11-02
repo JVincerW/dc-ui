@@ -12,7 +12,6 @@ import {getArticle} from '@/api/system/blogs';
 
 const proxy = getCurrentInstance().proxy;
 const showEditor = ref();
-const editorRef = ref();
 const articleDig = ref();
 const articleForm = ref();
 onBeforeMount(() => {
@@ -31,7 +30,6 @@ onBeforeMount(() => {
         reset();
         articleForm.createType = 'init';
     }
-    editorRef.showEditor = true;
     showEditor.value = true;
 });
 
