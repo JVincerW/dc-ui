@@ -84,6 +84,7 @@ watch(() => props.modelValue, (v) => {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 84px);
+    padding: 10px 0 10px 0;
     background-color: #eee;
     box-sizing: border-box;
 }
