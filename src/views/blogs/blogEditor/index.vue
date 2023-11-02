@@ -2,10 +2,10 @@
 
     <div style="background-color: #0acf83;">
         <el-button circle class='push' icon='Promotion' type='success' @click='digShow'/>
-        <div class="content_editor">
-            <editor v-if='showBasicEditor' v-model='articleForm.content'/>
-            <article-dig ref='articleDig' :digData='articleForm'></article-dig>
-        </div>
+
+        <editor v-if='showBasicEditor' v-model='articleForm.content'/>
+        <article-dig ref='articleDig' :digData='articleForm'></article-dig>
+
     </div>
 </template>
 
