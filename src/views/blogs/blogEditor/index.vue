@@ -2,7 +2,7 @@
     <!--TODO-->
     <div class="editor_content">
         <el-button circle class='push' icon='Promotion' type='success' @click='digShow'/>
-        <editor v-if='showBasicEditor' v-model='articleForm.content'/>
+        <editor v-if='showEditor' v-model='articleForm.content'/>
         <article-dig ref='articleDig' :digData='articleForm'></article-dig>
     </div>
 </template>
@@ -11,7 +11,7 @@
 import {getArticle} from '@/api/system/blogs';
 
 const proxy = getCurrentInstance().proxy;
-const showBasicEditor = ref();
+const showEditor = ref();
 const editorRef = ref();
 const articleDig = ref();
 const articleForm = ref();
@@ -31,8 +31,8 @@ onBeforeMount(() => {
         reset();
         articleForm.createType = 'init';
     }
-    editorRef.showBasicEditor = true;
-    showBasicEditor.value = true;
+    editorRef.showEditor = true;
+    showEditor.value = true;
 });
 
 function reset() {
