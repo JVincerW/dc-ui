@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@element-plus/icons-vue": "^2.1.0",
 		"@vueup/vue-quill": "^1.2.0",
+		"quill-blot-formatter": "^1.0.5",
 		"@vueuse/core": "10.5.0",
 		"axios": "^1.6.0",
 		"echarts": "5.4.3",
@@ -24,6 +25,7 @@
 		"nprogress": "0.2.0",
 		"pinia": "2.1.7",
 		"pnpm": "^8.10.2",
+
 		"vue": "3.3.7",
 		"vue-cropper": "1.0.3",
 		"vue-router": "4.2.5"

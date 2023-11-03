@@ -9,8 +9,12 @@
 </template>
 
 <script setup>
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
+import { QuillEditor, Quill } from '@vueup/vue-quill'
+
+
+import BlotFormatter from 'quill-blot-formatter'
+Quill.register('modules/blotFormatter', BlotFormatter)
 
 const props = defineProps({
     /* 编辑器的内容 */
@@ -31,23 +35,26 @@ const options = ref({
     modules: {
         // 工具栏配置
         toolbar: [
-            ['bold', 'italic', 'underline', 'strike'],       // 加粗 斜体 下划线 删除线
-            ['blockquote', 'code-block'],                    // 引用  代码块
-            [{list: 'ordered'}, {list: 'bullet'}],       // 有序、无序列表
-            [{indent: '-1'}, {indent: '+1'}],            // 缩进
+            ['bold', 'italic', 'underline', 'strike','blockquote', 'code-block'],       // 加粗 斜体 下划线 删除线 引用  代码块
+            [{list: 'ordered'}, {list: 'bullet'},{indent: '-1'}, {indent: '+1'}],       // 有序、无序列表
             [{size: ['small', false, 'large', 'huge']}],   // 字体大小
             [{header: [1, 2, 3, 4, 5, 6, false]}],         // 标题
             [{color: []}, {background: []}],             // 字体颜色、字体背景颜色
             [{align: []}],                                 // 对齐方式
             ['clean'],                                       // 清除文本格式
+            [{ 'font': [] }],
             ['link', 'image', 'video'],                       // 链接、图片、视频
         ],
+        // 图片缩放
+        blotFormatter: {
+            toolbar: {
+                mainClassName: 'blot-formatter__toolbar'
+            }
+        }
     },
     placeholder: '请输入内容',
     readOnly: props.readOnly,
 });
-
-
 
 const content = ref('');
 watch(() => props.modelValue, (v) => {
