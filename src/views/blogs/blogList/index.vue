@@ -79,16 +79,16 @@
 			<el-table-column align='center' type='selection' width='55' />
 			<el-table-column align='center' label='文档id' prop='id' />
 			<el-table-column align='center' label='标题' prop='title' />
-			<el-table-column align='center' label='用户ID' prop='userId' />
+<!--			<el-table-column align='center' label='用户ID' prop='userId' />-->
 			<el-table-column align='center' label='点赞数' prop='pollCount' />
-			<el-table-column align='center' label='封面图' prop='coverImage' width='100'>
+			<el-table-column align='center' label='封面图' prop='imageUrl' width='100'>
 				<template #default='scope'>
-					<image-preview :height='50' :src='scope.row.coverImage' :width='50' />
+					<image-preview :height='50' :src='scope.row.imageUrl' :width='50' />
 				</template>
 			</el-table-column>
 			<el-table-column align='center' label='评论数' prop='commentCount' />
-			<el-table-column align='center' label='阅读类型' prop='readType' />
-			<el-table-column align='center' label='编辑类型' prop='editorType' />
+<!--			<el-table-column align='center' label='阅读类型' prop='readType' />-->
+<!--			<el-table-column align='center' label='编辑类型' prop='editorType' />-->
 			<el-table-column align='center' label='是否置顶' prop='top' />
 			<el-table-column align='center' label='状态' prop='status' />
 			<el-table-column align='center' label='是否推荐' prop='recommended' />
@@ -110,15 +110,15 @@
 				:total='total'
 				@pagination='getList'
 		/>
-		<artic-dig ref='articleDig' :digData='digData' :getList='getList'></artic-dig>
-
+        <article-dig ref="articleDig" :digData="digData" />
 	</div>
 </template>
 
 <script setup>
 
 import { delArticle, listArticle,getArticle } from '@/api/system/blogs';
-import ArticDig from '../../../components/Editor/ArticleDig.vue';
+import ArticleDig from "@/components/Editor/ArticleDig.vue";
+
 
 
 const { proxy } = getCurrentInstance();
@@ -136,7 +136,7 @@ const articleDig = ref();
 const digData = ref();
 const initParams = {
 	pageNum: 1,
-	pageSize: 50,
+	pageSize: 10,
 	title: null,
 	userId: null,
 	status: null,
@@ -152,6 +152,7 @@ function getList() {
 	listArticle(queryParams.value)
 	.then((response) => {
 		articleList.value = response.rows;
+        console.log( response.rows)
 		total.value = response.total;
 		loading.value = false;
 	})
@@ -215,10 +216,15 @@ function handleEditor(row) {
 function handleUpdate(row) {
 	loading.value = true;
 	const _id = row.id || ids.value;
+    console.log(_id,"_id_id_id")
 	getArticle(_id)
 	.then((response) => {
-		const { readType, comment, coverImage, status, keywords, recommended, top, original, password, tags, title } = response.data;
-		digData.value = { id: _id, readType, comment, coverImage, status, keywords, recommended, top, original, password, tags, title, createType: 'Mod' };
+        console.log(response.data)
+
+		const {   title,readType,  allowComment,appreciation, imageUrl, status} = response.data;
+		digData.value = { id: _id,title, readType, allowComment,appreciation, imageUrl, status, createType: 'Mod' };
+
+        console.log(digData.value)
 		articleDig.value.handleShow();
 		loading.value = false;
 	})

@@ -5,16 +5,17 @@ import { addArticle, updateArticle } from '@/api/system/blogs';
 const { proxy } = getCurrentInstance();
 // const addVisible = ref(false);
 const { digData} = defineProps({ digData: Object});
-console.log('传递进来的数据1:', digData);
+
 // 新标签
 const dialogTableVisible=ref(false)
 // const newTagValue = ref(null);
 const waitLoading=ref(false)
 const handleShow = () => {
-	console.log(digData, 'digData显示');
-	dialogTableVisible.value = true;
-};
 
+	dialogTableVisible.value = true;
+    console.log(digData, 'digData显示');
+};
+console.log('传递进来的数据1:', digData);
 function tagTrans(tag) {
 	console.log('标签被点击：', tag);
 }
@@ -53,7 +54,7 @@ function handleSubmit() {
 				proxy.$modal.msgSuccess('创建文件成功！');
 			} else {
 				console.log(response);
-				proxy.$modal.msgSuccess(response);
+				proxy.$modal.msgError(response);
 			}
 		});
 	}
@@ -71,12 +72,13 @@ defineExpose({ handleShow });
 				<el-input v-model='digData.title' placeholder='请输入文章标题' />
 			</el-form-item>
 			<el-form-item label='阅读类型'>
-				<el-radio-group v-model='digData.readType'>
-					<el-radio label=0>无需验证</el-radio>
-					<el-radio label=1>密码验证</el-radio>
-					<el-radio label=2>仅自己</el-radio>
-				</el-radio-group>
-			</el-form-item>
+                <el-radio-group v-model="digData.readType">
+                    <el-radio :label="0">无需验证</el-radio>
+                    <el-radio :label="1">密码验证</el-radio>
+                    <el-radio :label="2">仅自己</el-radio>
+                </el-radio-group>
+
+            </el-form-item>
 			<el-form-item label='允许评论'>
 				<el-switch
 						v-model='digData.allowComment'
