@@ -2,18 +2,19 @@
     <!--TODO-->
     <div class="editor_content">
         <el-button circle class='push' icon='Promotion' type='success' @click='digShow'/>
-        <editor v-if='showEditor' v-model='articleForm.content'/>
-        <article-dig ref='articleDig' :digData='articleForm'></article-dig>
+        <editor v-if='showEditor' v-model='articleDetail.content'/>
+        <article-dig ref="articleDigDom" :digData="articleDetail" />
     </div>
 </template>
 
 <script setup>
 import {getArticle} from '@/api/system/blogs';
-
+import ArticleDig from "@/components/Editor/ArticleDig.vue";
+const articleDigDom = ref(null);
 const proxy = getCurrentInstance().proxy;
 const showEditor = ref();
-const articleDig = ref();
-const articleForm = ref();
+
+const articleDetail = ref();
 onBeforeMount(() => {
     reset();
     const createType = proxy.$route.query.createType || 'init';
@@ -21,12 +22,12 @@ onBeforeMount(() => {
     console.log('要编辑的文章id:', proxy.$route.query.id);
     if (createType === 'Mod' && proxy.$route.query.id) {
         getArticle(proxy.$route.query.id).then(response => {
-            articleForm.value = response.data;
-            articleForm.value.createType = 'Mod';
-            console.log(articleForm, 'articleForm');
+            articleDetail.value = response.data;
+            articleDetail.value.createType = 'Mod';
+            console.log(articleDetail.value, 'articleForm');
         });
     } else {
-        console.log(6666666);
+        console.log("获取到类型为init，初始化数据");
         reset();
         articleForm.createType = 'init';
     }
@@ -34,7 +35,7 @@ onBeforeMount(() => {
 });
 
 function reset() {
-    articleForm.value = {
+    articleDetail.value = {
         "allowComment": null,
         "appreciation": null,
         "contentType": null,
@@ -49,10 +50,13 @@ function reset() {
     }
 }
 
-function digShow() {
-    articleDig.value.handleShow();
-}
+function digShow(){
+    // console.log("ddddddddddfdf")
+    if (articleDigDom.value) {
+        articleDigDom.value.handleShow(); // 调用子组件的 showDialog 方法
+    }
 
+}
 </script>
 
 <style scoped>

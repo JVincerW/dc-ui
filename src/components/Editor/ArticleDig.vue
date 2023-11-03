@@ -3,13 +3,13 @@ import { ref } from 'vue';
 import { addArticle, updateArticle } from '@/api/system/blogs';
 
 const { proxy } = getCurrentInstance();
-const dialogTableVisible = ref(false);
-const addVisible = ref(false);
-const { digData, getList } = defineProps({ digData: Object, getList: Function });
-
+// const addVisible = ref(false);
+const { digData} = defineProps({ digData: Object});
+console.log('传递进来的数据1:', digData);
 // 新标签
-const newTagValue = ref(null);
-const wait_loadding=ref(false)
+const dialogTableVisible=ref(false)
+// const newTagValue = ref(null);
+const waitLoading=ref(false)
 const handleShow = () => {
 	console.log(digData, 'digData显示');
 	dialogTableVisible.value = true;
@@ -18,7 +18,6 @@ const handleShow = () => {
 function tagTrans(tag) {
 	console.log('标签被点击：', tag);
 }
-
 function addConfirm() {
 	console.log('添加新标签事件');
 	console.log(newTagValue.value, '新添加的标签');
@@ -37,7 +36,7 @@ function showInput() {
 }
 
 function handleSubmit() {
-  wait_loadding.value=true
+  waitLoading.value=true
 	console.log(proxy.digData, '确认按钮被点击，获取到的值');
 	const articleObj = proxy.digData;
 	console.log(articleObj, '最终的文章对象');
@@ -58,15 +57,15 @@ function handleSubmit() {
 			}
 		});
 	}
-  wait_loadding.value=false
+  waitLoading.value=false
 	dialogTableVisible.value = false;
 }
-
+console.log('传递进来的数据:', digData);
 defineExpose({ handleShow });
 </script>
 
 <template>
-	<el-dialog v-if='digData' v-model='dialogTableVisible' center>
+	<el-dialog v-model="dialogTableVisible" center>
 		<el-form label-width='80px'>
 			<el-form-item label='文章标题'>
 				<el-input v-model='digData.title' placeholder='请输入文章标题' />
@@ -135,7 +134,7 @@ defineExpose({ handleShow });
 <!--				</el-button>-->
 <!--			</el-form-item>-->
 			<el-form-item>
-				<el-button  clearable maxlength='5' :loading="wait_loadding" type='primary' @click='handleSubmit'>{{digData.createType === 'Mod' ? '确认修改' : '确认创建'}}</el-button>
+				<el-button  clearable maxlength='5' :loading="waitLoading" type='primary' @click='handleSubmit'>{{digData.createType === 'Mod' ? '确认修改' : '确认创建'}}</el-button>
 			</el-form-item>
 		</el-form>
 	</el-dialog>
