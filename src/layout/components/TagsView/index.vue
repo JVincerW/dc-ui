@@ -71,6 +71,7 @@ const routes       = computed(() => usePermissionStore().routes);
 const theme        = computed(() => useSettingsStore().theme);
 
 watch(route, () => {
+  // console.log(route,"route")
 	addTags();
 	moveToCurrentTag();
 });
