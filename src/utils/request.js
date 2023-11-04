@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ElLoading, ElMessage, ElMessageBox, ElNotification } from 'element-plus';
 import { getToken } from '@/utils/auth';
 import errorCode from '@/utils/errorCode';
-import { blobValidate, tansParams } from '@/utils/ruoyi';
+import { blobValidate, tansParams } from '@/utils/vincer';
 import cache from '@/plugins/cache';
 import { saveAs } from 'file-saver';
 import useUserStore from '@/store/modules/user';

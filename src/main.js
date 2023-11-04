@@ -19,7 +19,7 @@ import elementIcons from '@/components/SvgIcon/svgicon';
 
 import './permission'; // permission control
 import { useDict } from '@/utils/dict';
-import { addDateRange, handleTree, parseTime, resetForm, selectDictLabel, selectDictLabels } from '@/utils/ruoyi';
+import { addDateRange, handleTree, parseTime, resetForm, selectDictLabel, selectDictLabels } from '@/utils/vincer';
 import 'highlight.js/styles/github-dark.css'
 import 'highlight.js/lib/common'
 import hljsVuePlugin from '@highlightjs/vue-plugin'

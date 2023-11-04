@@ -94,7 +94,7 @@
 			</el-col>
 			<right-toolbar v-model:showSearch='showSearch' @queryTable='getList'></right-toolbar>
 		</el-row>
-		
+
 		<!-- 表格数据 -->
 		<el-table v-loading='loading' :data='roleList' @selection-change='handleSelectionChange'>
 			<el-table-column align='center' type='selection' width='55' />
@@ -134,7 +134,7 @@
 				</template>
 			</el-table-column>
 		</el-table>
-		
+
 		<pagination
 				v-show='total > 0'
 				v-model:limit='queryParams.pageSize'
@@ -142,7 +142,7 @@
 				:total='total'
 				@pagination='getList'
 		/>
-		
+
 		<!-- 添加或修改角色配置对话框 -->
 		<el-dialog v-model='open' :title='title' append-to-body width='500px'>
 			<el-form ref='roleRef' :model='form' :rules='rules' label-width='100px'>
@@ -199,7 +199,7 @@
 				</div>
 			</template>
 		</el-dialog>
-		
+
 		<!-- 分配角色数据权限对话框 -->
 		<el-dialog v-model='openDataScope' :title='title' append-to-body width='500px'>
 			<el-form :model='form' label-width='80px'>
@@ -250,7 +250,7 @@
 import { addRole, changeRoleStatus, dataScope, delRole, deptTreeSelect, getRole, listRole, updateRole } from '@/api/system/role';
 import { roleMenuTreeselect, treeselect as menuTreeselect } from '@/api/system/menu';
 import { useRouter } from 'vue-router';
-import { parseTime } from '../../../utils/ruoyi';
+import { parseTime } from '../../../utils/vincer';
 
 const router = useRouter();
 const { proxy } = getCurrentInstance();

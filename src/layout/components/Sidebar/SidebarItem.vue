@@ -8,13 +8,13 @@
 				</el-menu-item>
 			</app-link>
 		</template>
-		
+
 		<el-sub-menu v-else ref='subMenu' :index='resolvePath(item.path)'>
 			<template v-if='item.meta' #title>
 				<svg-icon :icon-class='item.meta && item.meta.icon' />
 				<span :title='hasTitle(item.meta.title)' class='menu-title'>{{ item.meta.title }}</span>
 			</template>
-			
+
 			<sidebar-item
 					v-for='child in item.children'
 					:key='child.path'
@@ -30,7 +30,7 @@
 <script setup>
 import { isExternal } from '@/utils/validate';
 import AppLink from './Link';
-import { getNormalPath } from '@/utils/ruoyi';
+import { getNormalPath } from '@/utils/vincer';
 
 const props = defineProps({
 	// route object
@@ -63,18 +63,18 @@ function hasOneShowingChild(children = [], parent) {
 			return true;
 		}
 	});
-	
+
 	// When there is only one child router, the child router is displayed by default
 	if( showingChildren.length === 1 ) {
 		return true;
 	}
-	
+
 	// Show parent if there are no child router to display
 	if( showingChildren.length === 0 ) {
 		onlyOneChild.value = { ...parent, path: '', noShowingChildren: true };
 		return true;
 	}
-	
+
 	return false;
 }
 

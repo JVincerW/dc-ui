@@ -19,7 +19,7 @@
 
 <script setup>
 import Fuse from 'fuse.js';
-import { getNormalPath } from '@/utils/ruoyi';
+import { getNormalPath } from '@/utils/vincer';
 import { isHttp } from '@/utils/validate';
 import usePermissionStore from '@/store/modules/permission';
 import { useRouter } from 'vue-router';
@@ -55,7 +55,7 @@ function change(val) {
 	} else {
 		router.push(path);
 	}
-	
+
 	search.value  = '';
 	options.value = [];
 	nextTick(() => {
@@ -86,7 +86,7 @@ function initFuse(list) {
 // And generate the internationalized title
 function generateRoutes(routes, basePath = '', prefixTitle = []) {
 	let res = [];
-	
+
 	for( const r of routes ) {
 		// skip hidden router
 		if( r.hidden ) { continue; }
@@ -95,17 +95,17 @@ function generateRoutes(routes, basePath = '', prefixTitle = []) {
 			path: !isHttp(r.path) ? getNormalPath(basePath + p) : r.path,
 			title: [ ...prefixTitle ],
 		};
-		
+
 		if( r.meta && r.meta.title ) {
 			data.title = [ ...data.title, r.meta.title ];
-			
+
 			if( r.redirect !== 'noRedirect' ) {
 				// only push the routes with title
 				// special case: need to exclude parent router without redirect
 				res.push(data);
 			}
 		}
-		
+
 		// recursive child routes
 		if( r.children ) {
 			const tempRoutes = generateRoutes(r.children, data.path, data.title);
@@ -149,13 +149,13 @@ watch(searchPool, (list) => {
 <style lang='scss' scoped>
 .header-search {
 	font-size: 0 !important;
-	
+
 	.search-icon {
 		cursor: pointer;
 		font-size: 18px;
 		vertical-align: middle;
 	}
-	
+
 	.header-search-select {
 		font-size: 18px;
 		transition: width 0.2s;
@@ -165,7 +165,7 @@ watch(searchPool, (list) => {
 		border-radius: 0;
 		display: inline-block;
 		vertical-align: middle;
-		
+
 		:deep(.el-input__inner) {
 			border-radius: 0;
 			border: 0;
@@ -176,7 +176,7 @@ watch(searchPool, (list) => {
 			vertical-align: middle;
 		}
 	}
-	
+
 	&.show {
 		.header-search-select {
 			width: 210px;
