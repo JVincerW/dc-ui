@@ -1,24 +1,29 @@
 
 ## 前端运行
 
-```bash
+###  github
+```shell
 # 克隆项目
 git clone https://github.com/JVincerW/dc-ui.git
+```
+###  gitee
+```shell
+# 克隆项目
+git clone git@gitee.com:vincer-1555/dc-ui.git
+```
+###  运行
+```shell
 
 # 进入项目目录
 cd dc-ui
 npm install -g pnpm
 # 安装依赖
 pnpm install
-
 # 启动服务
 pnpm dev
-
 ```
 
-
 ## 内置功能
-
 1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
 2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
 3.  岗位管理：配置系统用户所属担任职务。
@@ -38,5 +43,8 @@ pnpm dev
 17. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
 
 
-演示地址：http://43.153.47.23/
+## 演示地址：
+http://43.153.47.23/
 
+## 待处理
+- http://43.153.47.23/index
