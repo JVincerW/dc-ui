@@ -1,7 +1,7 @@
 {
 	"name": "dc",
 	"version": "3.6.3",
-	"description": "数据中台",
+	"description": "博客后台",
 	"author": "Vincer",
 	"license": "MIT",
 	"scripts": {

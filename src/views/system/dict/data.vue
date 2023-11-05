@@ -35,7 +35,7 @@
 				<el-button icon='Refresh' @click='resetQuery'>重置</el-button>
 			</el-form-item>
 		</el-form>
-		
+
 		<el-row :gutter='10' class='mb8'>
 			<el-col :span='1.5'>
 				<el-button
@@ -90,7 +90,7 @@
 			</el-col>
 			<right-toolbar v-model:showSearch='showSearch' @queryTable='getList'></right-toolbar>
 		</el-row>
-		
+
 		<el-table v-loading='loading' :data='dataList' @selection-change='handleSelectionChange'>
 			<el-table-column align='center' type='selection' width='55' />
 			<el-table-column align='center' label='字典编码' prop='dictCode' />
@@ -120,7 +120,7 @@
 				</template>
 			</el-table-column>
 		</el-table>
-		
+
 		<pagination
 				v-show='total > 0'
 				v-model:limit='queryParams.pageSize'
@@ -128,7 +128,7 @@
 				:total='total'
 				@pagination='getList'
 		/>
-		
+
 		<!-- 添加或修改参数配置对话框 -->
 		<el-dialog v-model='open' :title='title' append-to-body label-position='right' width='500px'>
 			<el-form ref='dataRef' :model='form' :rules='rules' label-width='80px'>
@@ -216,7 +216,7 @@ const data = reactive({
 	queryParams: {
 		pageNum: 1,
 		pageSize: 10,
-		dictName: undefined,
+        dictLabel: undefined,
 		dictType: undefined,
 		status: undefined,
 	},
