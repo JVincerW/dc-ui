@@ -79,6 +79,7 @@
 			<el-table-column align='center' type='selection' width='55' />
 			<el-table-column align='center' label='文档id' prop='id' />
 			<el-table-column align='center' label='标题' prop='title' />
+            <el-table-column align='center' label='用户' prop='userId' />
 <!--			<el-table-column align='center' label='用户ID' prop='userId' />-->
 			<el-table-column align='center' label='点赞数' prop='pollCount' />
 			<el-table-column align='center' label='封面图' prop='imageUrl' width='100'>
